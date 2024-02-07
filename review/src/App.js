@@ -23,7 +23,7 @@ function App() {
             <Route path='/register' element={<RegisterScreen />} />
             <Route path = "/" element={<Homescreen />} exact />
             <Route path = "/product/:id" element= {<Productscreen />} />
-            <Route path = "shipping/" element ={<Productscreen />} /> 
+            <Route path = "/shipping" element ={<Productscreen />} /> 
           </Routes>
         </Container>
       <Footer/>

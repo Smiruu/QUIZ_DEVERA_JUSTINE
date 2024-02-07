@@ -101,4 +101,12 @@ def getProduct(request, pk):
         return Response({'detail': 'Product not found'}, status=status.HTTP_404_NOT_FOUND)
     except ValueError:
         return Response({'detail': 'Invalid product ID'}, status=status.HTTP_400_BAD_REQUEST)
+    
 
+@api_view(['POST'])
+def create_shipping_address(request):
+    serializer = ShippingAddressSerializer(data=request.data)
+    if serializer.is_valid():
+        serializer.save()
+        return Response(serializer.data, status=status.HTTP_201_CREATED)
+    return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
